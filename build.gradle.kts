@@ -2,11 +2,14 @@ plugins {
     java
     id("org.springframework.boot") version "4.0.6"
     id("io.spring.dependency-management") version "1.1.7"
+
 }
 
 group = "com"
 version = "0.0.1-SNAPSHOT"
 description = "p-14164-1"
+
+val queryDslVersion = "6.11"
 
 java {
     toolchain {
@@ -34,6 +37,12 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testAnnotationProcessor("org.projectlombok:lombok")
     implementation("org.commonmark:commonmark:0.28.0")
+
+    // QueryDSL (OpenFeign fork, Jakarta/Hibernate 7 대응)
+    implementation("io.github.openfeign.querydsl:querydsl-jpa:$queryDslVersion")
+    annotationProcessor("io.github.openfeign.querydsl:querydsl-apt:$queryDslVersion:jakarta")
+    annotationProcessor("jakarta.annotation:jakarta.annotation-api")
+    annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 }
 
 tasks.withType<Test> {
