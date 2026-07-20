@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface WiseSayingRepositoryCustom {
-    Optional<WiseSaying> QfindById(Integer id);
+    Optional<WiseSaying> findQById(Integer id);
 
-    List<WiseSaying> findAll();
+    List<WiseSaying> findQAll();
 
-    long count();
+    long qCount();
 }

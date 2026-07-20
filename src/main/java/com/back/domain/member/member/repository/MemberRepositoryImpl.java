@@ -13,7 +13,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Optional<Member> findByUsername(String username) {
+    public Optional<Member> findQByUsername(String username) {
         Member result = queryFactory
                 .selectFrom(member)
                 .where(member.username.eq(username))
@@ -23,7 +23,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
     }
 
     @Override
-    public long count() {
+    public long qCount() {
         Long count = queryFactory
                 .select(member.count())
                 .from(member)

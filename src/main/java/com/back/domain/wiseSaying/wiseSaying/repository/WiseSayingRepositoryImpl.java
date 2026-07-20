@@ -14,7 +14,7 @@ public class WiseSayingRepositoryImpl implements WiseSayingRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Optional<WiseSaying> QfindById(Integer id) {
+    public Optional<WiseSaying> findQById(Integer id) {
         WiseSaying result = queryFactory
                 .selectFrom(wiseSaying)
                 .where(wiseSaying.id.eq(id))
@@ -24,14 +24,14 @@ public class WiseSayingRepositoryImpl implements WiseSayingRepositoryCustom {
     }
 
     @Override
-    public List<WiseSaying> findAll() {
+    public List<WiseSaying> findQAll() {
         return queryFactory
                 .selectFrom(wiseSaying)
                 .fetch();
     }
 
     @Override
-    public long count() {
+    public long qCount() {
         Long count = queryFactory
                 .select(wiseSaying.count())
                 .from(wiseSaying)
