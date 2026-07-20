@@ -14,7 +14,7 @@ public class WiseSayingService {
     private final WiseSayingRepository wiseSayingRepository;
 
     public Optional<WiseSaying> findById(int id) {
-        return wiseSayingRepository.findById(id);
+        return wiseSayingRepository.QfindById(id);
     }
 
     public WiseSaying write(String content, String author) {
